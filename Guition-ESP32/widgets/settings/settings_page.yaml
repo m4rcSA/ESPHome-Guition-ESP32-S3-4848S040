@@ -119,6 +119,7 @@ lvgl:
                           - Русский         # ru
                           - English (US)    # en
                           - Polski          # pl
+                          - Catalá          # ca
                         bg_opa: TRANSP
                         shadow_opa: TRANSP
                         border_opa: TRANSP

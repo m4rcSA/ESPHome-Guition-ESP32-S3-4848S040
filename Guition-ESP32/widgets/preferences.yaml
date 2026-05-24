@@ -46,6 +46,7 @@
 #   6 = ru    Russian
 #   7 = en    English (US) ← default if index is out of range
 #   8 = pl    Polish
+#   9 = ca    Catalan
 #
 # ── STRING INDEX (column number in the table) ────────────────────────────────
 #   Each column maps to one on-screen label.  To change a specific label for a
@@ -82,7 +83,7 @@ script:
     then:
       - lambda: |-
           // Rows: language index  Cols: string index (see mapping above)
-          static const char* const t[9][25] = {
+          static const char* const t[10][25] = {
 
             // ── de – German ────────────────────────────────────────────────
             { "Alarmanlage",       "Rollos",           "Ventilatoren",       "Beleuchtung",       "Szenen",
@@ -176,10 +177,18 @@ script:
               "Flip",              "Brak",             "Poka\u017c zdarzenia","Zegar G\u0142\u00f3wny","Standardowy",
               "Flip" },
 
+            // ── ca – Catalan ───────────────────────────────────────────────
+            { "Panell d'alarma",   "Persianes",        "Ventiladors",        "Llums",             "Escenes",
+              "Persones",          "Previsi\u00f3 5 dies","Prob. de pluja",  "Actualitzar",
+              "Idioma",            "Tema",             "Brillantor",         "Rep\u00f2s (seg)",  "Rellotge",
+              "12h",               "24h",              "Temperatura",        "Estalvi de pantalla",    "Digital",
+              "Giratori",              "Cap",              "Mostrar esdeveniments","Rellotge principal","Est\u00e0ndard",
+              "Giratori" },
+
           };
 
           int l = id(current_language);
-          if (l < 0 || l > 8) l = 7;  // default to en-US if out of range
+          if (l < 0 || l > 9) l = 7;  // default to en-US if out of range
 
           lv_label_set_text(id(alarm_panel_header),       t[l][0]);
           lv_label_set_text(id(covers_panel_header),      t[l][1]);
