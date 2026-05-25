@@ -118,11 +118,11 @@ text_sensor:
             lambda: 'return id(thermostat_sensor_hvac_mode).state == "heating";'
           then:
             - lvgl.label.update:
-                id: thermostat_status
+                id: thermostat_state_label
                 text_color: color_deep_orange
           else:
             - lvgl.label.update:
-                id: thermostat_status
+                id: thermostat_state_label
                 text_color: color_steel_blue
 
   # Thermostat state
